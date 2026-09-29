@@ -3,40 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+  <meta
+    name="description"
+    content="Направления обучения музыкальной школы Аккорд."
+  >
+
   <meta property="og:type" content="website">
-    <meta property="og:title" content="Учебный интернет-магазин">
-    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-    <meta property="og:image" content="https://Zakhar-Bulidn.github.io/kr1-html-css-shop/images/preview.jpg">
+  <meta property="og:title" content="Направления обучения — Музыкальная школа Аккорд">
+  <meta
+    property="og:description"
+    content="Гитара, фортепиано и вокал для детей и взрослых."
+  >
+  
+  <title>Направления обучения — Музыкальная школа Аккорд</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap"
+    rel="stylesheet"
+  >
 
-  <title>Каталог товаров — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">Аккорд</a>
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html">Главная</a>
+            <a class="site-nav__link" href="index.html">
+              Главная
+            </a>
           </li>
+
           <li class="site-nav__item">
-            <a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a>
+            <a
+              class="site-nav__link site-nav__link--active"
+              href="catalog.html"
+            >
+              Направления
+            </a>
           </li>
+
           <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
+            <a class="site-nav__link" href="product.html">
+              О курсе
+            </a>
           </li>
+
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+            <a class="site-nav__link" href="order.html">
+              Запись
+            </a>
           </li>
+
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+            <a class="site-nav__link" href="contacts.html">
+              Контакты
+            </a>
           </li>
+
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+            <a class="site-nav__link" href="index.html#advantages">
+              Преимущества
+            </a>
           </li>
         </ul>
       </nav>
@@ -45,16 +78,22 @@
 
   <main>
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Каталог</span>
+      <a class="breadcrumbs__link" href="index.html">
+        Главная
+      </a>
+
+      <span class="breadcrumbs__current">
+        Направления
+      </span>
     </nav>
 
     <section class="section">
-      <h1>Каталог товаров</h1>
+      <h1>Направления обучения</h1>
+
       <p>
-        На этой странице представлен учебный каталог товаров.
-        В дальнейшем здесь будут добавлены фильтры, сортировка и более
-        подробные карточки.
+        Выберите музыкальное направление.
+        Занятия подходят для детей и взрослых
+        с любым уровнем подготовки.
       </p>
     </section>
 
@@ -64,7 +103,9 @@
 
         <form class="catalog-filters__form" action="#" method="get">
           <fieldset class="catalog-filters__group">
-            <legend class="catalog-filters__legend">Категория</legend>
+            <legend class="catalog-filters__legend">
+              Направление
+            </legend>
 
             <label class="catalog-filters__label">
               <input
@@ -73,7 +114,7 @@
                 name="category"
                 value="all"
               >
-              Все товары
+              Все направления
             </label>
 
             <label class="catalog-filters__label">
@@ -81,9 +122,9 @@
                 class="catalog-filters__checkbox"
                 type="checkbox"
                 name="category"
-                value="popular"
+                value="instruments"
               >
-              Популярные
+              Инструменты
             </label>
 
             <label class="catalog-filters__label">
@@ -91,76 +132,115 @@
                 class="catalog-filters__checkbox"
                 type="checkbox"
                 name="category"
-                value="new"
+                value="vocal"
               >
-              Новинки
+              Вокал
             </label>
           </fieldset>
 
           <fieldset class="catalog-filters__group">
-            <legend class="catalog-filters__legend">Цена</legend>
+            <legend class="catalog-filters__legend">
+              Стоимость занятия
+            </legend>
 
-            <label class="catalog-filters__label" for="price-from">От</label>
+            <label class="catalog-filters__label" for="price-from">
+              От
+            </label>
+
             <input
               class="catalog-filters__input"
               id="price-from"
               name="price-from"
               type="number"
               min="0"
-              placeholder="0"
+              placeholder="1000"
             >
 
-            <label class="catalog-filters__label" for="price-to">До</label>
+            <label class="catalog-filters__label" for="price-to">
+              До
+            </label>
+
             <input
               class="catalog-filters__input"
               id="price-to"
               name="price-to"
               type="number"
               min="0"
-              placeholder="5000"
+              placeholder="3000"
             >
           </fieldset>
 
-          <button class="button button--primary" type="submit">Применить</button>
+          <button class="button button--primary" type="submit">
+            Применить
+          </button>
         </form>
       </aside>
 
       <section class="catalog-layout__products">
-        <h2>Список товаров</h2>
+        <h2>Наши направления</h2>
 
         <div class="products-grid">
-          <!-- Карточки товаров -->
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 1</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1000 руб.</p>
+          <article class="product-card product-card--featured">
+            <h3 class="product-card__title">
+              Гитара
+            </h3>
+
+            <p class="product-card__description">
+              Обучение игре на акустической и электрогитаре
+              с любого уровня подготовки.
+            </p>
+
+            <p class="product-card__price">
+              от 1500 руб. / занятие
+            </p>
+
             <a
               class="button button--primary product-card__button"
-              href="index.html#popular"
+              href="product.html#guitar"
             >
               Подробнее
             </a>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 2</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1500 руб.</p>
+            <h3 class="product-card__title">
+              Фортепиано
+            </h3>
+
+            <p class="product-card__description">
+              Индивидуальные занятия, развитие слуха,
+              техники и чувства ритма.
+            </p>
+
+            <p class="product-card__price">
+              от 1700 руб. / занятие
+            </p>
+
             <a
               class="button button--primary product-card__button"
-              href="index.html#popular"
+              href="product.html#piano"
             >
               Подробнее
             </a>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 3</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2000 руб.</p>
+            <h3 class="product-card__title">
+              Вокал
+            </h3>
+
+            <p class="product-card__description">
+              Постановка голоса, работа с дыханием
+              и исполнение любимых композиций.
+            </p>
+
+            <p class="product-card__price">
+              от 1600 руб. / занятие
+            </p>
+
             <a
               class="button button--primary product-card__button"
-              href="index.html#popular"
+              href="product.html#vocal"
             >
               Подробнее
             </a>
@@ -168,13 +248,11 @@
         </div>
       </section>
     </section>
-
-
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    <p>&copy; 2026 Музыкальная школа «Аккорд».</p>
+    <p>Учебный проект по дисциплине «Фронтенд и бэкенд разработка».</p>
   </footer>
 </body>
 </html>

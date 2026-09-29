@@ -1,76 +1,96 @@
-// Получаем модальное окно по id.
+// Получаем модальное окно на главной странице.
 const orderDialog = document.getElementById('order-dialog');
 
-// Получаем все кнопки заказа в карточках товаров.
+// Получаем кнопки записи в карточках направлений.
 const orderButtons = document.querySelectorAll('.product-card__button');
 
 // Получаем кнопку закрытия модального окна.
 const closeDialogButton = document.getElementById('close-order-dialog');
 
-// Получаем скрытое поле, в которое будет записан выбранный товар.
+// Получаем скрытое поле с выбранным направлением.
 const selectedProductInput = document.getElementById('selected-product');
 
-// Перебираем все кнопки «Заказать».
-orderButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
-
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
-
-    // Открываем модальное окно.
-    orderDialog.showModal();
-  });
-});
-
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
-
-
-
-// Получаем форму заявки.
+// Получаем форму из модального окна.
 const orderForm = document.getElementById('order-form');
 
-// Получаем сообщение об успешной отправке.
+// Получаем сообщение об успешной отправке на главной странице.
 const successMessage = document.getElementById('success-message');
 
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-  event.preventDefault();
 
-  // Сбрасываем предыдущие признаки ошибок.
-  const formElements = Array.from(orderForm.elements);
+// Проверяем, что модальное окно существует на текущей странице.
+if (orderDialog && selectedProductInput) {
+  orderButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      // Получаем название направления из data-атрибута.
+      const productName = button.dataset.product;
 
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute('aria-invalid');
-    }
-  });
+      // Записываем выбранное направление в скрытое поле.
+      selectedProductInput.value = productName;
 
-  // Проверяем встроенные HTML-ограничения формы.
-  if (!orderForm.checkValidity()) {
-    formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
-      }
+      // Открываем модальное окно.
+      orderDialog.showModal();
     });
+  });
+}
 
-    // Показываем стандартные сообщения браузера.
-    orderForm.reportValidity();
-    return;
-  }
 
-  // Показываем сообщение об успешной отправке.
-  successMessage.hidden = false;
+// Закрываем модальное окно.
+if (orderDialog && closeDialogButton) {
+  closeDialogButton.addEventListener('click', () => {
+    orderDialog.close();
+  });
+}
 
-  // Очищаем форму.
-  orderForm.reset();
 
-  // Закрываем модальное окно.
-  orderDialog.close();
-});
+// Обрабатываем форму в модальном окне.
+if (orderForm && orderDialog && successMessage) {
+  orderForm.addEventListener('submit', (event) => {
+    // Отменяем стандартную отправку формы,
+    // потому что backend пока не подключён.
+    event.preventDefault();
+
+    // Проверяем встроенную HTML-валидацию.
+    if (!orderForm.checkValidity()) {
+      orderForm.reportValidity();
+      return;
+    }
+
+    // Показываем сообщение об успешной отправке.
+    successMessage.hidden = false;
+
+    // Очищаем форму.
+    orderForm.reset();
+
+    // Закрываем модальное окно.
+    orderDialog.close();
+  });
+}
+
+
+// Получаем форму со страницы записи.
+const pageOrderForm = document.getElementById('page-order-form');
+
+// Получаем сообщение об успешной записи.
+const pageSuccessMessage = document.getElementById('page-success-message');
+
+
+// Обрабатываем форму на отдельной странице записи.
+if (pageOrderForm && pageSuccessMessage) {
+  pageOrderForm.addEventListener('submit', (event) => {
+    // Отменяем стандартную отправку формы,
+    // потому что backend пока не подключён.
+    event.preventDefault();
+
+    // Проверяем встроенную HTML-валидацию.
+    if (!pageOrderForm.checkValidity()) {
+      pageOrderForm.reportValidity();
+      return;
+    }
+
+    // Показываем подтверждение успешной записи.
+    pageSuccessMessage.hidden = false;
+
+    // Очищаем форму.
+    pageOrderForm.reset();
+  });
+}
