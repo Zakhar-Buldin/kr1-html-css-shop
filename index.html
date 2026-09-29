@@ -24,7 +24,9 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Подключение JavaScript-файла -->
+  <!-- defer позволяет не блокировать разбор HTML и гарантирует выполнение скрипта после построения документа-->
   <script src="js/main.js" defer></script>
+  
 </head>
 <body>
   <header class="site-header">
@@ -187,6 +189,7 @@
     <p>Учебный проект по дисциплине «Фронтенд и бэкенд разработка».</p>
   </footer>
 
+  <!-- Форма записи на урок -->
   <dialog
     class="order-dialog"
     id="order-dialog"
@@ -195,12 +198,12 @@
     <h2 class="order-dialog__title" id="order-dialog-title">
       Запись на пробное занятие
     </h2>
-
+    
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
 
       <div class="order-form__field">
-        <label class="order-form__label" for="order-agreement">
+        <label class="order-form__label" for="order-name">
           Имя
         </label>
 
@@ -299,7 +302,7 @@
       </div>
 
       <div class="order-form__field">
-        <label class="order-form__label">
+        <label class="order-form__label" for="order-agreement">
           <input
             class="order-form__checkbox"
             id="order-agreement"

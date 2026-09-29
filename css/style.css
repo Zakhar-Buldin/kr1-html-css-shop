@@ -39,6 +39,7 @@
    2. Базовые стили
    =============================== */
 
+/* '*' - это универсальный селектор, то есть применяется ко всем элементам. */
 * {
   box-sizing: border-box;
 }
@@ -105,6 +106,8 @@ img {
   opacity: 0.95;
 }
 
+/* Flexbox удобен для навигации, 
+   потому что пункты меню можно располагать в одну строку и выравнивать по центру.*/
 .site-nav__list {
   display: flex;
   flex-wrap: wrap;
@@ -128,11 +131,13 @@ img {
   border-radius: var(--radius-sm);
 }
 
+/* :hover срабатывает при наведении мыши. */
 .site-nav__link:hover {
   color: var(--color-white);
   background-color: var(--color-primary);
 }
 
+/* :focus-visible показывает фокус, например при навигации клавишей Tab. */
 .site-nav__link:focus-visible {
   outline: 2px solid var(--color-white);
   outline-offset: 3px;
@@ -269,6 +274,7 @@ a:focus-visible {
    6. Карточки направлений
    =============================== */
 
+/* grid создаёт три одинаковых столбца для карточек. 1fr — одна доля свободного пространства */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -441,6 +447,7 @@ a:focus-visible {
   box-shadow: 0 4px 14px rgba(40, 36, 58, 0.08);
 }
 
+/* relative = "относительно меня" */
 .product-details__image-wrapper {
   position: relative;
 }
@@ -451,6 +458,8 @@ a:focus-visible {
   border-radius: var(--radius-md);
 }
 
+/* absolute = "поставь меня в конкретное место" */
+/* z-index: 1 показывает бейдж поверх элемента с более низким слоем, в данном случае поверх image */
 .product-details__badge {
   position: absolute;
   top: var(--space-md);
